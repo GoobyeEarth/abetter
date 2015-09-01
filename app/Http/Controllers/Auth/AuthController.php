@@ -22,13 +22,14 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
+    protected $redirectTo = '/'; // 追加。登録後やログイン後のリダイレクト先
+    
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+ public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
     }
