@@ -58,6 +58,7 @@
               </div>
             </div>
           </form>
+          
         </div><!-- .panel-body -->
       </div><!-- .panel -->
     </div><!-- .col -->

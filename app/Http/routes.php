@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,6 +12,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('test');
+Route::get('/', 'CommentsController@followerComments');
+Route::controller('auth', 'Auth\AuthController');
+Route::post('abeet', 'CommentsController@abeet');
+Route::get('user/{name}', 'CommentsController@userComments');
+Route::get('index/user', 'FollowController@userIndex');
+Route::get('search', function(){
+	return view('search');
 });
+Route::post('search/result', 'FollowController@searchUser');
+Route::get('follow/{name}','FollowController@haveFollowed');
+Route::get('unfollow/{name}', 'FollowController@unfollowed');

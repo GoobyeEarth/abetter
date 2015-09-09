@@ -12,7 +12,7 @@
             </button>
  
             <!-- ブランド表示 -->
-            <a class="navbar-brand" href="/">My Blog</a>
+            <a class="navbar-brand" href="/">HOME</a>
         </div>
  
         <!-- メニュー -->
@@ -21,23 +21,48 @@
             <ul class="nav navbar-nav">
                 {{--<li>{!! link_to_route('articles.index', 'Blog') !!}</li>--}}
                 <li><a href="/contact">Contact</a></li>
-                <li><a href="/about">About</a></li>
             </ul>
- 
+ 			<style type="text/css">
+ 				li.search-margin{
+ 					margin: 10px;
+ 				}
+ 			</style>
             <!-- 右寄せメニュー -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Register</a></li>
+                @if (Auth::guest())
+                    {{-- ログインしていない時 --}}
  
-                <!-- ドロップダウンメニュー -->
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User Name <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Profile</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Logout</a></li>
-                    </ul>
-                </li>
+                    <li><a href="/auth/login">Login</a></li>
+                    <li><a href="/auth/register">Register</a></li>
+                @else
+                    {{-- ログインしている時 --}}
+ 					<li class="search-margin">
+ 						<div class="col-md-6" margin="10px">
+ 							<form class="form-vertical" role="form" method="POST" action="/search/result" >
+							{{-- CSRF対策--}}
+							<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							
+							<input class="form-control" type="text" name="comment" placeholder="Abetterを検索" maxlength="260" >
+							
+                  	
+							
+						</form>
+ 						</div>
+	                    
+					</li>
+                    <!-- ドロップダウンメニュー -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/auth/logout">Logout</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
