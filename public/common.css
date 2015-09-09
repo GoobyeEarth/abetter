@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+
+p.top{
+	font-size: 500%;
+	text-align: center;
+}
+.search_margin{
+	margin: 10px;
+}
+
+.btn_layout{
+	margin: 20px 0px 20px 0px;
+	font-size: 150%;
+}
+
+li.header_btn{
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+}
+
+li.header_btn .text{
+	font-size: 10px;
+	
+}
+li.header_btn .num{
+ 	font-size: 16px;
+}
+
+.navbar-default{
+	text-align: center;
+}
+.left{
+	float: left;
+}
+.right{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+a.hname{
+	font-size: 25px;
+}
+.form_layout{
+	width: 90%;
+	height: 70px;
+}
+.align_center{
+	text-align: center;
+}
+.align_left{
+	text-align: left;
+}
+.align_right{
+	text-align: right;
+}
+
+.comment{
+	margin: 20px;
+	font-size: 16px;
+}
+.comment .name{
+	margin: 10px;
+	font-size: 25px;
+}
+
+.comment .date{
+	margin: 10px;
+}
+
+.comment .mes{
+	margin: 10px;
+	font-size: 22px;
+}
+.comment .delete{
+	margin: 10px;
+}
+.comment .edit{
+	margin: 10px;
+}
