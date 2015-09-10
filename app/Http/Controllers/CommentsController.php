@@ -36,7 +36,25 @@ class CommentsController extends Controller
 				\Flash::success('コメントを削除しました');
 			}
 			
+		}
+		return  Redirect::back();
+	}
+	
+	public function edit($id){
+		if(\Auth::guest()){
 			
+		}
+		else{
+			$comment = Comment::findOrFail($id);
+			
+			if(\Auth::user()->name == $comment->name){
+			$comment = Comment::where('id', '=', $id)->update(
+					array('comment' => \Request::input('editcomment'),
+							'id' => $id
+					) 
+				);
+				\Flash::success('コメントを変更しました　id:' .$id);
+			}
 			
 		}
 		return  Redirect::back();
@@ -44,10 +62,11 @@ class CommentsController extends Controller
 	
 	
 	public function userComments($name){
-		$comments = Comment::where('name','=',$name)->get();
+		$comments = Comment::where('name','=',$name)->orderBy('created_at', 'asc')->get();
 		//for header
 		$headerData = CommentsController::header();
-		return view('user', compact('headerData','comments'));
+		$userData = FollowController::userData($name);
+		return view('user', compact('headerData','comments', 'userData'));
 	}
 	
 	public function main(){
@@ -70,7 +89,7 @@ class CommentsController extends Controller
 		foreach ($followees as $followee){
 			$comments = $comments->orWhere('name', '=', $followee->followee);
 		}
-		$comments = $comments->get();
+		$comments = $comments->orderBy('created_at', 'desc')->get();
 			
 		return $comments;
 		

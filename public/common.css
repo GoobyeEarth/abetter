@@ -82,7 +82,7 @@ a.hname{
 }
 
 .comment .mes{
-	margin: 10px;
+	margin: 10px 10px 10px 50px;
 	font-size: 22px;
 }
 .comment .delete{
@@ -91,6 +91,13 @@ a.hname{
 .comment .edit{
 	margin: 10px;
 }
+.comment .editview{
+	margin: 10px 10px 10px 50px;
+}
+.comment .editview input{
+	font-size: 22px;
+}
+
 table.userindex{
 	font-size: 25px;
 	margin: 10px;
@@ -106,3 +113,7 @@ table.userindex tr{
 .font16{
 	font-size: 16px;
 }
+table.userinfo{
+	padding :5px;
+}
+

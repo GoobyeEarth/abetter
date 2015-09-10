@@ -27,4 +27,6 @@ Route::get('follow/{name}','FollowController@follow');
 Route::get('unfollow/{name}', 'FollowController@unfollow');
 Route::get('follower', 'FollowController@follower');
 Route::get('followee', 'FollowController@followee');
+
 Route::get('delete/comment/{id}', 'CommentsController@delete');
+Route::post('edit/comment/{id}', 'CommentsController@edit');

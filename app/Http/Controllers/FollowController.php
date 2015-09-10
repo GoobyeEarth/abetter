@@ -52,7 +52,7 @@ class FollowController extends Controller
 		$follower = \Auth::user()->name;
 		$followee = $name;
 		if($followee == $follower){
-			return view('have_followed', compact('followee'));
+			return Redirect::back();
 		}
 		else{
 			
@@ -106,8 +106,7 @@ class FollowController extends Controller
 		if(\Auth::guest()) return redirect('/');
 		$followers = $this->getFollower();
 		
-		$counters = Array();
-		$isFollow = Array();
+		$followersData = Array();
 		for($i = 0; $i < count($followers); $i++) {
 			$followersData[$i] = FollowController::userData($followers[$i]->follower);
 		}
