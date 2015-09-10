@@ -12,14 +12,19 @@ use App\Http\Controllers\CommentsController;
 |
 */
 
-Route::get('/', 'CommentsController@followerComments');
+Route::get('/', 'CommentsController@main');
 Route::controller('auth', 'Auth\AuthController');
 Route::post('abeet', 'CommentsController@abeet');
 Route::get('user/{name}', 'CommentsController@userComments');
-Route::get('index/user', 'FollowController@userIndex');
 Route::get('search', function(){
 	return view('search');
 });
 Route::post('search/result', 'FollowController@searchUser');
-Route::get('follow/{name}','FollowController@haveFollowed');
-Route::get('unfollow/{name}', 'FollowController@unfollowed');
+
+Route::get('search/result/{search}', 'FollowController@searchResult');
+Route::get('search/result', 'FollowController@redirect');
+Route::get('follow/{name}','FollowController@follow');
+Route::get('unfollow/{name}', 'FollowController@unfollow');
+Route::get('follower', 'FollowController@follower');
+Route::get('followee', 'FollowController@followee');
+Route::get('delete/comment/{id}', 'CommentsController@delete');

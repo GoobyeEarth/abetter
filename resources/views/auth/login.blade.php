@@ -1,6 +1,6 @@
 {{-- resources/views/auth/login.blade.php --}}
  
-@extends('layout')
+@extends('parts.layout')
  
 @section('content')
 <div class="container-fluid">

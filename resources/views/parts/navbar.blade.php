@@ -11,8 +11,12 @@
                 <span class="icon-bar"></span>
             </button>
  
-            
-            <a class="navbar-brand hname" href="/">ユーザー名</a>
+@if (\Auth::guest())
+
+@else
+	            <a class="navbar-brand hname" href="/">{{ \Auth::user()->name }}</a>    
+@endif
+
             <div class="left search_margin">
             	@include('parts.search')
             </div><!-- left -->
@@ -41,26 +45,26 @@
                 @else
                 	
                 	<li class="header_btn">
-	                	<a href="follower">
+	                	<a href="/follower">
 	                		<div class="text">フォロワー</div><!-- text -->
-	                		<div class="num">000</div><!-- num -->
+	                		<div class="num">{{  $headerData['follower'] }} </div><!-- num -->
 	                	</a>
 	                </li>
 	                <li class="header_btn">
-	                	<a href="follower">
+	                	<a href="/followee">
 	                		<div class="text">フォロー</div><!-- text -->
-	                		<div class="num">000</div><!-- num -->
+	                		<div class="num">{{ $headerData['followee'] }} </div><!-- num -->
 	                	</a>
 	                </li>
 	                
 	                <li class="header_btn">
-	                	<a href="follower">
+	                	<a href="/">
 	                		<div class="text">コメント</div><!-- text -->
-	                		<div class="num">000</div><!-- num -->
+	                		<div class="num">{{ $headerData['comment'] }} </div><!-- num -->
 	                	</a>
 	                </li>
                     {{-- ログインしている時 --}}
-                    <li><a href="/user/">マイページ</a></li>
+                    <li><a href="/user/{{ Auth::user()->name }} ">マイページ</a></li>
                     
                     <!-- ドロップダウンメニュー -->
                     <li class="dropdown">

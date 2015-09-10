@@ -14,14 +14,7 @@
 </form>
 
 @foreach ($comments as $comment)
-<div class="comment">
-	<div class="left name">{{ $comment->name }}</div>
-	<div class="left date">{{ $comment->updated_at }}</div>
-	<div class="right delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></div>
-	<div class="right edit"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></div>
-	<div class="clear mes">{{ $comment->comment }}</div>
-	
-</div>
+@include('parts.comment', ['comment'=>$comment])
 @endforeach
 
 

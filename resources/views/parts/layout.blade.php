@@ -16,8 +16,11 @@
 	 {{-- ナビゲーションバーの Partial を使用 --}}
     @include('parts.navbar')
     <div class="container">
+        @include('flash::message')
+ 
         @yield('content')
-    </div><!-- container -->
+    </div>
+    
      
     <!-- Scripts --><!-- ③ 追加 -->
     

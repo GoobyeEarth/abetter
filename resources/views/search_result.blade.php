@@ -1,12 +1,13 @@
 
-@extends('layout')
+@extends('parts.layout')
 
 @section('content')
 
-
-@foreach ($result as $row)
-	<p><a href="/user/{{ $row->name }}">{{ $row->name }} </a></p>
-	<p><a href="/follow/{{ $row->name }}">フォロー</a></p>
-
-@endforeach
+@include('parts.search')
+<h2>検索結果:</h2>
+<table class="userindex" cellpadding="5">
+@for ($i = 0; $i < count($resultData); $i++) 
+	@include('parts.userlist', ['userData' => $resultData[$i] ])
+@endfor
+</table>
 @endsection

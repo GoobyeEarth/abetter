@@ -13,16 +13,29 @@ p.top{
 	font-size: 150%;
 }
 
-li.header_btn{
+.header_btn{
 	text-align: center;
 	margin: 0px 0px 0px 0px;
 }
 
-li.header_btn .text{
+.btn_counter .text{
+	font-size: 12px;
+	
+}
+.btn_counter .num{
+ 	font-size: 18px;
+}
+
+.btn_counter{
+	text-align: center;
+	margin: 0px 0px 0px 0px;
+}
+
+.header_btn .text{
 	font-size: 10px;
 	
 }
-li.header_btn .num{
+.header_btn .num{
  	font-size: 16px;
 }
 
@@ -77,4 +90,19 @@ a.hname{
 }
 .comment .edit{
 	margin: 10px;
+}
+table.userindex{
+	font-size: 25px;
+	margin: 10px;
+	width: 100%;
+}
+
+table.userindex td{
+	padding :5px;
+}
+table.userindex tr{
+	
+}
+.font16{
+	font-size: 16px;
 }
