@@ -40,8 +40,8 @@
                 @if (Auth::guest())
                     {{-- ログインしていない時 --}}
  
-                    <li><a href="/auth/login">Login</a></li>
-                    <li><a href="/auth/register">Register</a></li>
+                    <li><a href="/auth/login">ログイン</a></li>
+                    <li><a href="/auth/register">登録</a></li>
                 @else
                 	
                 	<li class="header_btn">
@@ -73,7 +73,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="/auth/logout">Logout</a></li>
+                            <li><a href="/auth/logout">ログアウト</a></li>
                         </ul>
                     </li>
                     

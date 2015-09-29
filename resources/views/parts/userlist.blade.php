@@ -9,8 +9,10 @@
 		
 	@if ($userData['isFollow']>=1)
 		<td class="font16"><a class="btn btn-block btn-info" href="/unfollow/{{ $userData['name'] }}">フォロー解除</a></td>
-	@else
+	@elseif($userData['isFollow'] == 0)
     	<td class="font16"><a class="btn btn-block btn-primary" href="/follow/{{ $userData['name'] }}">フォローする</a></td>
+	@else
+		
 	@endif
 
 	</tr>

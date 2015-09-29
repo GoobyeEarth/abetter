@@ -153,17 +153,24 @@ class FollowController extends Controller
 	}
 	
 	public static function isFollow($followee){
-		$count =DB::table('followings')
-		->where('follower','=', \Auth::user()->name)
-		->where('followee','=', $followee)
-		->count();
-		return $count;
+		if(\Auth::guest()){
+			return -1;
+		}
+		else{
+			$count =DB::table('followings')
+			->where('follower','=', \Auth::user()->name)
+			->where('followee','=', $followee)
+			->count();
+			return $count;
+		}
+		
 	}
 	
 	public static function userData($name){
 		$data = FollowController::getCounter($name);
 		$data['name'] = $name;
 		$data['isFollow'] = FollowController::isFollow($name);
+		
 		return $data;
 	}
 	
